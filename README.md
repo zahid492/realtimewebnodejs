@@ -24,6 +24,9 @@ Once the server is running, open the project in the shape of 'https://projectnam
 
 ## Sources:
 
-middleend.com
-nodestreams.com
-browserify.org
+1) middleend.com
+
+2) nodestreams.com
+
+3) browserify.org
+
