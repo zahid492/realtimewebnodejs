@@ -1,8 +1,19 @@
 function readFile(filename) {
-  var sq = ASQ();
+  var sq = ASQ;
   
-  fs.readFile(filename, sq.errfcb());
-  return sq;
+  return sq(function(done){
+    var readStream = fs.createReadStream(filename);
+    var data = "";
+    
+    readStream.on("pipe", function() { fs.createWriteStream(filename+".backup") });
+    readStream.on("data", function(chunck){
+      data+=chunck;
+      
+    });
+    readStream.on("end", function(){
+      done(data);
+    });
+  });
     
 }
 
@@ -15,8 +26,7 @@ function delayMessage(done, contents){
 }
 
 function say(filename) {
-  return readFile(filename)
-  .then(delayMessage);
+  return readFile(filename).then(delayMessage);
 }
 
 var fs = require("fs");
