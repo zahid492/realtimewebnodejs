@@ -9,7 +9,12 @@
     "asynquence": "^0.6.0-b",
     "asynquence-contrib": "^0.9.0-a",
     "fs": "0.0.2",
-    "minimist": "^1.1.1"
+    "fs-extra": "^0.18.2",
+    "minimist": "^1.1.1",
+    "node-static": "^0.7.6",
+    "path": "^0.11.14",
+    "socket.io": "^0.9.16",
+    "url": "^0.10.3"
   },
   "devDependencies": {
     "nodemon": "^1.3.7"

@@ -1,13 +1,12 @@
 function readFile(filename) {
-  var sq = ASQ;
   
-  return sq(function(done){
+  return ASQ(function(done){
     var readStream = fs.createReadStream(filename);
     var data = "";
     
-    readStream.on("pipe", function() { fs.createWriteStream(filename+".backup") });
+    //readStream.on("pipe", function() { fs.createWriteStream(filename+".backup") });
     readStream.on("data", function(chunck){
-      data+=chunck;
+      data += chunck;
       
     });
     readStream.on("end", function(){
@@ -29,7 +28,7 @@ function say(filename) {
   return readFile(filename).then(delayMessage);
 }
 
-var fs = require("fs");
+var fs = require("fs-extra");
 var ASQ = require("asynquence");
 require("asynquence-contrib");
 
